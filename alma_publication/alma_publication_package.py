@@ -86,8 +86,10 @@ def updateprogramids(df):
         mask = np.array([re.match(r'20\d+',j)!=None for j in data])
         tmp.append(list(set(data[mask])))
     df['almaprojcode'] = tmp
-    
-
+     
+def update_telbib(df, bibcode_old, bibcode_new):
+    rowidx = df.index[df['bibcode']==bibcode_old][0]
+    df.loc[int(rowidx), 'bibcode'] = bibcode_new
 
 def addads(df):
     if (os.path.exists('./{:}_df_ADS_xml.pkl'.format(na.ADS.TOKEN))):
