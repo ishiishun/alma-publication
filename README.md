@@ -1,1 +1,1 @@
-# alma-publication
+# almapublication
